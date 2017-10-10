@@ -1,6 +1,8 @@
 <%@page contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+
 
 <!DOCTYPE html>
 
@@ -21,7 +23,7 @@
 	
 	<div class="content">
 		<div class="login-panel">
-			<form action="home" method="POST">
+			<sf:form action="login" method="POST" modelAttribute="customer">
 				<c:if test="${regSucceed}">
 					<p>Registration succeed. Please login:</p>
 				</c:if>
@@ -29,15 +31,15 @@
 				<div class="form-group">
 					<label for="username" class="col-2 col-form-label">Username</label>
 					<div class="col-6">
-						<input class="form-control" type="text"
-							placeholder="Your username" name="username" id="username">
+						<sf:input class="form-control" type="text"
+							placeholder="Your username" name="username" id="username" path="username" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="password" class="col-2 col-form-label">Password</label>
 					<div class="col-6">
 						<input class="form-control" type="search"
-							placeholder="Your password" name="password" id="password">
+							placeholder="Your password" name="password" id="password" path="password">
 					</div>
 				</div>
 				<c:if test="${loginFail}">
@@ -49,7 +51,7 @@
 						role="button">Register</a>
 
 				</div>
-			</form>
+			</sf:form>
 
 		</div>
 	</div>

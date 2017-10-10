@@ -25,7 +25,7 @@
 
 	<div class="content">
 
-		<sf:form class="reg-form" action="index" method="POST" modelAttribute="user">
+		<sf:form class="reg-form" action="register" method="POST" modelAttribute="customer">
 			<c:if test="${userExisted}">
 				<p>The username has been registered. Try another one.</p>
 			</c:if>
