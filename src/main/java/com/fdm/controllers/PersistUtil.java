@@ -49,9 +49,9 @@ public class PersistUtil {
 		
 	}
 
-	public void newOrder(HttpServletRequest req) {
-		String receiverName = req.getParameter("receivername");
-		String receiverAddress = req.getParameter("receiveraddress");
+	public void newOrder(Order newOrder, HttpServletRequest req) {
+		String receiverName = newOrder.getReceiverName();
+		String receiverAddress = newOrder.getReceiverAddress();
 		Order order = new Order();
 		Customer customer = (Customer) req.getSession().getAttribute("loginUser");
 		Courier courier = this.getCourierService().findAvailableCourier();
@@ -76,14 +76,13 @@ public class PersistUtil {
 		return cal.getTime();
 	}
 
-	public void updateOrder(HttpServletRequest req) {
+	public void updateOrder(HttpServletRequest req, Order updatedOrder) {
 		OrderService orderService = getOrderService();
-		Long orderId = Long.parseLong(req.getParameter("orderId"));
-		Order order = orderService.findOrderByID(orderId);
+		Long orderId = updatedOrder.getOrderId();
 		Order newOrder = new Order();
 		newOrder.setOrderId(orderId);
-		newOrder.setReceiverName(req.getParameter("receivername"));
-		newOrder.setReceiverAddress(req.getParameter("receiveraddress"));
+		newOrder.setReceiverName(updatedOrder.getReceiverName());
+		newOrder.setReceiverAddress(updatedOrder.getReceiverAddress());
 		orderService.updateOrder(newOrder);
 	}
 

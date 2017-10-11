@@ -1,6 +1,7 @@
 package com.fdm.model;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
@@ -71,13 +72,16 @@ public class CourierService {
 	public Courier findAvailableCourier() {
 
 		List<Courier> couriers = findAllOrders(); 
-		for(Courier courier : couriers) {
-			if(courier.getStatus().equals(CourierStatus.WAITING)) {
-				return courier;
-			}
-		}
+//		for(Courier courier : couriers) {
+//			if(courier.getStatus().equals(CourierStatus.WAITING)) {
+//				return courier;
+//			}
+//		}
 		
-		return couriers.get(0);
+		Random r = new Random();
+		int courierIndex =  r.nextInt(4);
+		
+		return couriers.get(courierIndex);
 	}
 	
 }

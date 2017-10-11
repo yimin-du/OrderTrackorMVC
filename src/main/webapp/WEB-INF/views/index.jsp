@@ -38,7 +38,7 @@
 				<div class="form-group">
 					<label for="password" class="col-2 col-form-label">Password</label>
 					<div class="col-6">
-						<input class="form-control" type="search"
+						<input class="form-control" type="password"
 							placeholder="Your password" name="password" id="password" path="password">
 					</div>
 				</div>

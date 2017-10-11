@@ -18,6 +18,12 @@ public class Courier {
 	@Column(name="CUR_LOCATION")
 	private String currentLocation;
 	
+	@Column(name="LAT")
+	private double lat;
+	
+	@Column(name="LNG")
+	private double lng;
+	
 	@Column
 	private CourierStatus status;
 	
@@ -57,6 +63,23 @@ public class Courier {
 		orders.add(order);
 	}
 	
+	
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
+
 	public void removeOrder(Order order) {
 		orders.remove(order);
 	}

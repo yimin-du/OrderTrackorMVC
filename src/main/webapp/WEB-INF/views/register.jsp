@@ -11,8 +11,8 @@
 <head>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/style.css">
+<link rel="stylesheet" 	href="resources/css/style.css">
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -39,7 +39,7 @@
 			<div class="form-group">
 				<label for="password" class="col-2 col-form-label">Password</label>
 				<div class="col-6">
-					<sf:input class="form-control" type="search"
+					<sf:input class="form-control" type="password"
 						placeholder="Your password" name="password" id="password" path="password"/>
 				</div>
 			</div>
